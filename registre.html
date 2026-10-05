@@ -8,21 +8,22 @@
 <body>
 
 <header>
-    <h1>Joia Justa</h1>
-    <p>Joieria ètica i sostenible</p>
+    <a href="index.html" class="logo">joia<span>justa</span></a>
+
+    <nav>
+        <a href="productes.html">Anells</a>
+        <a href="productes.html">Collarets</a>
+        <a href="productes.html">Arracades</a>
+        <a href="productes.html">Polseres</a>
+        <a href="login.html">Entra</a>
+        <a href="registre.html">Registre</a>
+    </nav>
 </header>
 
-<nav>
-    <a href="index.html">Inici</a>
-    <a href="productes.html">Anells</a>
-    <a href="registre.html">Registre</a>
-    <a href="login.html">Iniciar sessió</a>
-</nav>
-
 <main>
-    <h2>Registre</h2>
-
     <form class="formulari">
+        <h2>Registre</h2>
+
         <label for="nom">Nom:</label>
         <input type="text" id="nom" name="nom" required pattern="[A-Za-zÀ-ÿ ]+">
 
@@ -41,7 +42,7 @@
         <label for="cp">Codi postal:</label>
         <input type="text" id="cp" name="cp" required pattern="\d{5}">
 
-        <button type="submit">Registrar-se</button>
+        <button type="submit" class="boto">Registrar-se</button>
     </form>
 </main>
 

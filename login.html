@@ -2,34 +2,35 @@
 <html lang="ca">
 <head>
     <meta charset="utf-8">
-    <title>Joia Justa - Iniciar sessió</title>
+    <title>Joia Justa - Entra</title>
     <link rel="stylesheet" href="css/estils.css">
 </head>
 <body>
 
 <header>
-    <h1>Joia Justa</h1>
-    <p>Joieria ètica i sostenible</p>
+    <a href="index.html" class="logo">joia<span>justa</span></a>
+
+    <nav>
+        <a href="productes.html">Anells</a>
+        <a href="productes.html">Collarets</a>
+        <a href="productes.html">Arracades</a>
+        <a href="productes.html">Polseres</a>
+        <a href="login.html">Entra</a>
+        <a href="registre.html">Registre</a>
+    </nav>
 </header>
 
-<nav>
-    <a href="index.html">Inici</a>
-    <a href="productes.html">Anells</a>
-    <a href="registre.html">Registre</a>
-    <a href="login.html">Iniciar sessió</a>
-</nav>
-
 <main>
-    <h2>Iniciar sessió</h2>
-
     <form class="formulari">
+        <h2>Iniciar sessió</h2>
+
         <label for="email">Correu electrònic:</label>
         <input type="email" id="email" name="email" required>
 
         <label for="password">Contrasenya:</label>
         <input type="password" id="password" name="password" required>
 
-        <button type="submit">Entrar</button>
+        <button type="submit" class="boto">Entrar</button>
     </form>
 </main>
 

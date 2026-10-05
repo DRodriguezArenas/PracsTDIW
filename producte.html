@@ -8,33 +8,36 @@
 <body>
 
 <header>
-    <h1>Joia Justa</h1>
-    <p>Joieria ètica i sostenible</p>
-</header>
+    <a href="index.html" class="logo">joia<span>justa</span></a>
 
-<nav>
-    <a href="index.html">Inici</a>
-    <a href="productes.html">Anells</a>
-    <a href="registre.html">Registre</a>
-    <a href="login.html">Iniciar sessió</a>
-</nav>
+    <nav>
+        <a href="productes.html">Anells</a>
+        <a href="productes.html">Collarets</a>
+        <a href="productes.html">Arracades</a>
+        <a href="productes.html">Polseres</a>
+        <a href="login.html">Entra</a>
+        <a href="registre.html">Registre</a>
+    </nav>
+</header>
 
 <main>
     <h2>Anell amb aiguamarina</h2>
 
-    <img class="foto" src="img/anells.svg" alt="Anell amb aiguamarina">
-
     <div class="detall">
-        <p><b>Preu:</b> 89 €</p>
-        <p><b>Material:</b> plata reciclada</p>
-        <p><b>Pedra:</b> aiguamarina de comerç just</p>
-        <p>Anell fet a mà amb plata reciclada.</p>
+        <img src="img/anells.svg" alt="Anell amb aiguamarina">
 
-        <form>
-            <label for="quantitat">Quantitat:</label>
-            <input type="number" id="quantitat" name="quantitat" value="1" min="1">
-            <button type="submit">Afegir a la cistella</button>
-        </form>
+        <div>
+            <p class="preu">89 €</p>
+            <p><b>Material:</b> plata reciclada</p>
+            <p><b>Pedra:</b> aiguamarina de comerç just</p>
+            <p>Anell fet a mà amb plata reciclada.</p>
+
+            <form>
+                <label for="quantitat">Quantitat:</label>
+                <input type="number" id="quantitat" name="quantitat" value="1" min="1">
+                <button type="submit" class="boto">Afegir a la cistella</button>
+            </form>
+        </div>
     </div>
 </main>
 
