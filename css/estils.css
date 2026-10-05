@@ -21,11 +21,9 @@ header {
 }
 
 .logo {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: bold;
-}
-
-.logo span {
+    letter-spacing: 8px;
     color: #c9a227;
 }
 
