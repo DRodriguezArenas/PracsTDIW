@@ -2,64 +2,39 @@
 <html lang="ca">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inicia sessió | Joia Justa</title>
+    <title>Joia Justa - Iniciar sessió</title>
     <link rel="stylesheet" href="css/estils.css">
 </head>
 <body>
 
-<header class="capcalera">
-    <a href="index.html" class="logo">
-        <img src="img/logo.svg" alt="Logotip de Joia Justa">
-        <span>Joia Justa<small>Joieria ètica i sostenible</small></span>
-    </a>
-
-    <nav class="menu">
-        <ul>
-            <li><a href="index.html">Inici</a></li>
-            <li><a href="productes.html">Anells</a></li>
-            <li><a href="productes.html">Collarets</a></li>
-            <li><a href="productes.html">Arracades</a></li>
-            <li><a href="productes.html">Polseres</a></li>
-        </ul>
-    </nav>
-
-    <div class="usuari">
-        <a href="login.html">Inicia sessió</a>
-        <a href="registre.html">Registra't</a>
-        <a href="#" class="cistella">Cistella (0)</a>
-    </div>
+<header>
+    <h1>Joia Justa</h1>
+    <p>Joieria ètica i sostenible</p>
 </header>
 
+<nav>
+    <a href="index.html">Inici</a>
+    <a href="productes.html">Anells</a>
+    <a href="registre.html">Registre</a>
+    <a href="login.html">Iniciar sessió</a>
+</nav>
+
 <main>
-    <section class="formulari">
-        <h1>Inicia sessió</h1>
+    <h2>Iniciar sessió</h2>
 
-        <form action="#" method="post">
-            <fieldset>
-                <div class="camp">
-                    <label for="email">Correu electrònic</label>
-                    <input type="email" id="email" name="email" required
-                           placeholder="maria@exemple.cat">
-                </div>
+    <form class="formulari">
+        <label for="email">Correu electrònic:</label>
+        <input type="email" id="email" name="email" required>
 
-                <div class="camp">
-                    <label for="password">Contrasenya</label>
-                    <input type="password" id="password" name="password" required
-                           placeholder=" ">
-                </div>
+        <label for="password">Contrasenya:</label>
+        <input type="password" id="password" name="password" required>
 
-                <button type="submit" class="boto">Entra</button>
-            </fieldset>
-        </form>
-
-        <p class="peu-formulari">Encara no tens compte? <a href="registre.html">Registra't</a></p>
-    </section>
+        <button type="submit">Entrar</button>
+    </form>
 </main>
 
-<footer class="peu">
-    <p>&copy; 2026 Joia Justa &middot; Plata reciclada i or de mineria justa (Fairmined)</p>
-    <p>Pràctica de TDIW &middot; tdiw-e6</p>
+<footer>
+    <p>Joia Justa 2026 - Pràctica TDIW</p>
 </footer>
 
 </body>

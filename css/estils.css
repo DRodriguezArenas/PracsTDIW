@@ -1,469 +1,102 @@
-/* ==========================================================
-   Joia Justa - Joieria ètica i sostenible
-   Full d'estils principal
-   ========================================================== */
-
-:root {
-    --verd-fosc: #1f3d35;
-    --verd: #2f5d50;
-    --verd-clar: #7fb7a4;
-    --or: #c9a227;
-    --or-clar: #e8d48b;
-    --crema: #f6efe3;
-    --blanc: #ffffff;
-    --text: #2b2b2b;
-    --text-suau: #6b6b6b;
-    --robi: #b5475b;
-    --radi: 10px;
-    --ombra: 0 4px 14px rgba(31, 61, 53, 0.12);
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f6efe3;
 }
 
-* {
+header {
+    background-color: #2f5d50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+header h1 {
+    margin: 0;
+    color: #e8c547;
+}
+
+nav {
+    background-color: #c9a227;
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+}
+
+h2 {
+    color: #2f5d50;
+}
+
+.caixa {
+    display: inline-block;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #c9a227;
+    text-align: center;
+}
+
+.caixa img {
+    width: 100%;
+}
+
+.foto {
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+    border: 2px solid #c9a227;
+}
+
+.detall {
+    overflow: hidden;
+}
+
+.formulari {
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #c9a227;
+}
+
+.formulari label {
+    display: block;
+    margin-top: 10px;
+}
+
+.formulari input {
+    width: 100%;
+    padding: 5px;
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-    color: var(--text);
-    background-color: var(--crema);
-    line-height: 1.5;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-h1, h2, h3 {
-    font-family: Georgia, "Times New Roman", serif;
-    color: var(--verd-fosc);
-    font-weight: normal;
-}
-
-a {
-    color: var(--verd);
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-/* ---------- Capçalera ---------- */
-
-.capcalera {
-    background-color: var(--verd-fosc);
-    color: var(--crema);
-    padding: 0.8rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    border-bottom: 4px solid var(--or);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
-    color: var(--crema);
-}
-
-.logo img {
-    width: 42px;
-    height: 42px;
-}
-
-.logo span {
-    font-family: Georgia, serif;
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-}
-
-.logo small {
-    display: block;
-    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 0.75rem;
-    color: var(--or-clar);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1.4rem;
-    flex-wrap: wrap;
-}
-
-.menu a {
-    color: var(--crema);
-    text-decoration: none;
-    padding-bottom: 2px;
-    border-bottom: 2px solid transparent;
-}
-
-.menu a:hover,
-.menu a.actiu {
-    color: var(--or-clar);
-    border-bottom-color: var(--or);
-}
-
-.usuari {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-
-.usuari a {
-    color: var(--crema);
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-.cistella {
-    background-color: var(--or);
-    color: var(--verd-fosc) !important;
-    padding: 0.35rem 0.9rem;
-    border-radius: 20px;
-    font-weight: bold;
-}
-
-/* ---------- Contingut principal ---------- */
-
-main {
-    flex: 1;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1.5rem 1rem 3rem;
-}
-
-.banner {
-    text-align: center;
-    padding: 2.5rem 1rem;
-    margin-bottom: 2rem;
-    background: linear-gradient(135deg, var(--verd) 0%, var(--verd-fosc) 100%);
-    color: var(--crema);
-    border-radius: var(--radi);
-    box-shadow: var(--ombra);
-}
-
-.banner h1 {
-    color: var(--crema);
-    font-size: 2.2rem;
-    margin: 0 0 0.5rem;
-}
-
-.banner p {
-    margin: 0;
-    color: var(--or-clar);
-}
-
-.ruta {
-    font-size: 0.9rem;
-    color: var(--text-suau);
-    margin-bottom: 1rem;
-}
-
-.ruta a {
-    color: var(--text-suau);
-}
-
-/* ---------- Graella de targetes (categories i productes) ---------- */
-
-.graella {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
-}
-
-.targeta {
-    background-color: var(--blanc);
-    border-radius: var(--radi);
-    overflow: hidden;
-    box-shadow: var(--ombra);
-    text-decoration: none;
-    color: var(--text);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.targeta:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 22px rgba(31, 61, 53, 0.22);
-}
-
-.targeta img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-}
-
-.targeta .info {
-    padding: 0.9rem 1rem 1.1rem;
-    border-top: 3px solid var(--or);
-}
-
-.targeta h2,
-.targeta h3 {
-    margin: 0 0 0.3rem;
-    font-size: 1.2rem;
-}
-
-.targeta p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-suau);
-}
-
-.preu {
-    font-weight: bold;
-    color: var(--verd) !important;
-    font-size: 1.05rem !important;
-    margin-top: 0.4rem !important;
-}
-
-.etiqueta {
-    display: inline-block;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background-color: var(--verd-clar);
-    color: var(--verd-fosc);
-    padding: 0.1rem 0.5rem;
-    border-radius: 4px;
-    margin-bottom: 0.4rem;
-}
-
-/* ---------- Valors (pàgina d'inici) ---------- */
-
-.valors {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-    margin-top: 2.5rem;
-}
-
-.valors article {
-    background-color: var(--blanc);
-    border-left: 4px solid var(--or);
-    padding: 1rem 1.2rem;
-    border-radius: 0 var(--radi) var(--radi) 0;
-}
-
-.valors h3 {
-    margin: 0 0 0.3rem;
-}
-
-.valors p {
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-/* ---------- Detall de producte ---------- */
-
-.detall {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    background-color: var(--blanc);
-    padding: 2rem;
-    border-radius: var(--radi);
-    box-shadow: var(--ombra);
-}
-
-.detall img {
-    border-radius: var(--radi);
-    border: 1px solid var(--or-clar);
-}
-
-.detall h1 {
-    margin-top: 0;
-    font-size: 2rem;
-}
-
-.detall .preu {
-    font-size: 1.6rem !important;
-}
-
-.caracteristiques {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-}
-
-.caracteristiques li {
-    padding: 0.4rem 0;
-    border-bottom: 1px dashed var(--or-clar);
-}
-
-.caracteristiques strong {
-    color: var(--verd);
-}
-
-.afegir {
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    margin-top: 1.5rem;
-}
-
-.afegir input[type="number"] {
-    width: 80px;
-    flex: none;
-}
-
-/* ---------- Formularis ---------- */
-
-.formulari {
-    max-width: 520px;
-    margin: 0 auto;
-    background-color: var(--blanc);
-    padding: 2rem 2.2rem;
-    border-radius: var(--radi);
-    box-shadow: var(--ombra);
-    border-top: 5px solid var(--or);
-}
-
-.formulari h1 {
-    margin-top: 0;
-    text-align: center;
-}
-
-.formulari fieldset {
-    min-width: 0;
+button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #2f5d50;
+    color: white;
     border: none;
-    padding: 0;
-    margin: 0;
-}
-
-.camp {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-}
-
-.camp label {
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-    color: var(--verd-fosc);
-}
-
-.camp small {
-    color: var(--text-suau);
-    font-size: 0.8rem;
-    margin-top: 0.2rem;
-}
-
-.dos-columnes {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1rem;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"] {
-    padding: 0.6rem 0.75rem;
-    border: 1px solid #cfc6b4;
-    border-radius: 6px;
-    font-size: 1rem;
-    background-color: #fffdf8;
-    width: 100%;
-    min-width: 0;
-}
-
-input:focus {
-    outline: none;
-    border-color: var(--or);
-    box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.25);
-}
-
-/* Validació HTML5: marquem els camps incorrectes un cop l'usuari hi ha escrit */
-input:not(:placeholder-shown):invalid {
-    border-color: var(--robi);
-}
-
-input:not(:placeholder-shown):valid {
-    border-color: var(--verd-clar);
-}
-
-.boto {
-    display: inline-block;
-    background-color: var(--verd);
-    color: var(--crema);
-    border: none;
-    padding: 0.75rem 1.6rem;
-    border-radius: 25px;
-    font-size: 1rem;
     cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.2s;
 }
 
-.boto:hover {
-    background-color: var(--verd-fosc);
-}
-
-.boto-or {
-    background-color: var(--or);
-    color: var(--verd-fosc);
-}
-
-.boto-or:hover {
-    background-color: #b08c1d;
-}
-
-.formulari .boto {
-    width: 100%;
-    margin-top: 0.5rem;
-}
-
-.formulari .peu-formulari {
+footer {
+    background-color: #2f5d50;
+    color: white;
     text-align: center;
-    margin-top: 1.2rem;
-    font-size: 0.9rem;
-}
-
-/* ---------- Peu de pàgina ---------- */
-
-.peu {
-    background-color: var(--verd-fosc);
-    color: var(--crema);
-    text-align: center;
-    padding: 1.2rem;
-    font-size: 0.85rem;
-    border-top: 4px solid var(--or);
-}
-
-.peu p {
-    margin: 0.2rem 0;
-}
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 720px) {
-    .capcalera {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
-    .detall {
-        grid-template-columns: 1fr;
-        padding: 1.2rem;
-    }
-
-    .dos-columnes {
-        grid-template-columns: 1fr;
-    }
-
-    .formulari {
-        padding: 1.5rem 1.2rem;
-    }
+    padding: 10px;
 }

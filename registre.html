@@ -2,105 +2,51 @@
 <html lang="ca">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registre | Joia Justa</title>
+    <title>Joia Justa - Registre</title>
     <link rel="stylesheet" href="css/estils.css">
 </head>
 <body>
 
-<header class="capcalera">
-    <a href="index.html" class="logo">
-        <img src="img/logo.svg" alt="Logotip de Joia Justa">
-        <span>Joia Justa<small>Joieria ètica i sostenible</small></span>
-    </a>
-
-    <nav class="menu">
-        <ul>
-            <li><a href="index.html">Inici</a></li>
-            <li><a href="productes.html">Anells</a></li>
-            <li><a href="productes.html">Collarets</a></li>
-            <li><a href="productes.html">Arracades</a></li>
-            <li><a href="productes.html">Polseres</a></li>
-        </ul>
-    </nav>
-
-    <div class="usuari">
-        <a href="login.html">Inicia sessió</a>
-        <a href="registre.html">Registra't</a>
-        <a href="#" class="cistella">Cistella (0)</a>
-    </div>
+<header>
+    <h1>Joia Justa</h1>
+    <p>Joieria ètica i sostenible</p>
 </header>
 
+<nav>
+    <a href="index.html">Inici</a>
+    <a href="productes.html">Anells</a>
+    <a href="registre.html">Registre</a>
+    <a href="login.html">Iniciar sessió</a>
+</nav>
+
 <main>
-    <section class="formulari">
-        <h1>Crea el teu compte</h1>
+    <h2>Registre</h2>
 
-        <form action="#" method="post">
-            <fieldset>
-                <div class="camp">
-                    <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" required
-                           pattern="[A-Za-zÀ-ÖØ-öø-ÿ ]+"
-                           title="Només lletres i espais"
-                           placeholder="Maria Puig">
-                    <small>Només lletres i espais.</small>
-                </div>
+    <form class="formulari">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required pattern="[A-Za-zÀ-ÿ ]+">
 
-                <div class="camp">
-                    <label for="email">Correu electrònic</label>
-                    <input type="email" id="email" name="email" required
-                           placeholder="maria@exemple.cat">
-                </div>
+        <label for="email">Correu electrònic:</label>
+        <input type="email" id="email" name="email" required>
 
-                <div class="camp">
-                    <label for="password">Contrasenya</label>
-                    <input type="password" id="password" name="password" required
-                           pattern="[A-Za-z0-9]+"
-                           title="Només lletres i números"
-                           placeholder=" ">
-                    <small>Només caràcters alfanumèrics (lletres i números).</small>
-                </div>
+        <label for="password">Contrasenya:</label>
+        <input type="password" id="password" name="password" required pattern="[A-Za-z0-9]+">
 
-                <div class="camp">
-                    <label for="adreca">Adreça</label>
-                    <input type="text" id="adreca" name="adreca" required
-                           maxlength="30"
-                           pattern="[A-Za-zÀ-ÖØ-öø-ÿ0-9 ]{1,30}"
-                           title="Fins a 30 caràcters (lletres, números i espais)"
-                           placeholder="Carrer Major 12">
-                    <small>Màxim 30 caràcters.</small>
-                </div>
+        <label for="adreca">Adreça:</label>
+        <input type="text" id="adreca" name="adreca" required maxlength="30">
 
-                <div class="dos-columnes">
-                    <div class="camp">
-                        <label for="poblacio">Població</label>
-                        <input type="text" id="poblacio" name="poblacio" required
-                               maxlength="30"
-                               pattern="[A-Za-zÀ-ÖØ-öø-ÿ ]{1,30}"
-                               title="Fins a 30 caràcters (lletres i espais)"
-                               placeholder="Cerdanyola">
-                    </div>
+        <label for="poblacio">Població:</label>
+        <input type="text" id="poblacio" name="poblacio" required maxlength="30">
 
-                    <div class="camp">
-                        <label for="cp">Codi postal</label>
-                        <input type="text" id="cp" name="cp" required
-                               pattern="\d{5}" maxlength="5" inputmode="numeric"
-                               title="5 dígits"
-                               placeholder="08193">
-                    </div>
-                </div>
+        <label for="cp">Codi postal:</label>
+        <input type="text" id="cp" name="cp" required pattern="\d{5}">
 
-                <button type="submit" class="boto">Registra'm</button>
-            </fieldset>
-        </form>
-
-        <p class="peu-formulari">Ja tens compte? <a href="login.html">Inicia sessió</a></p>
-    </section>
+        <button type="submit">Registrar-se</button>
+    </form>
 </main>
 
-<footer class="peu">
-    <p>&copy; 2026 Joia Justa &middot; Plata reciclada i or de mineria justa (Fairmined)</p>
-    <p>Pràctica de TDIW &middot; tdiw-e6</p>
+<footer>
+    <p>Joia Justa 2026 - Pràctica TDIW</p>
 </footer>
 
 </body>
