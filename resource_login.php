@@ -1,3 +1,4 @@
+<?php // resource_login.php ?>
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -8,16 +9,7 @@
 <body>
 
 <header>
-    <a href="index.html" class="logo">AUREA</a>
-
-    <nav>
-        <a href="productes.html">Anells</a>
-        <a href="productes.html">Collarets</a>
-        <a href="productes.html">Arracades</a>
-        <a href="productes.html">Polseres</a>
-        <a href="login.html">Entra</a>
-        <a href="registre.html">Registre</a>
-    </nav>
+    <?php require __DIR__ . '/controller/menu_superior.php'; ?>
 </header>
 
 <main>

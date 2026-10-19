@@ -1,25 +1,18 @@
+<?php // resource_detall_producte.php ?>
 <!DOCTYPE html>
 <html lang="ca">
 <head>
     <meta charset="utf-8">
-    <title>Aurea - Anell amb aiguamarina</title>
+    <title>Aurea - Detall de producte</title>
     <link rel="stylesheet" href="css/estils.css">
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="logo">AUREA</a>
-
-    <nav>
-        <a href="productes.html">Anells</a>
-        <a href="productes.html">Collarets</a>
-        <a href="productes.html">Arracades</a>
-        <a href="productes.html">Polseres</a>
-        <a href="login.html">Entra</a>
-        <a href="registre.html">Registre</a>
-    </nav>
+    <?php require __DIR__ . '/controller/menu_superior.php'; ?>
 </header>
 
+<!-- De moment és estàtic: a la sessió 3 el producte vindrà de la base de dades -->
 <main>
     <h2>Anell amb aiguamarina</h2>
 
@@ -29,7 +22,6 @@
         <div>
             <p class="preu">89 €</p>
             <p><b>Material:</b> plata reciclada</p>
-            <p><b>Pedra:</b> aiguamarina de comerç just</p>
             <p>Anell fet a mà amb plata reciclada.</p>
 
             <form>
