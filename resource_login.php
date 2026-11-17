@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Aurea - Entra</title>
     <link rel="stylesheet" href="css/estils.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/menu.js" defer></script>
 </head>
 <body>
 

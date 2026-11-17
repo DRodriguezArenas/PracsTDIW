@@ -82,6 +82,7 @@ nav a:hover {
 
 .categories {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .categoria {
@@ -123,6 +124,7 @@ h2 {
 
 .productes {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -135,6 +137,10 @@ h2 {
 
 .caixa img {
     width: 100%;
+}
+
+.caixa:hover {
+    outline: 2px solid #c9a227;
 }
 
 .caixa p {
@@ -153,6 +159,64 @@ h2 {
 .preu {
     font-size: 28px;
     color: #c9a227;
+}
+
+#productes-categoria,
+#detall-producte {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.afegir-cabas select {
+    padding: 5px;
+    margin-right: 15px;
+}
+
+/* Menú desplegable d'usuari */
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu-usuari {
+    position: relative;
+    margin-left: 25px;
+}
+
+.boto-usuari {
+    background: none;
+    border: 1px solid #c9a227;
+    color: #c9a227;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.desplegable {
+    display: none;          /* jQuery el mostra en clicar */
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin: 5px 0 0;
+    padding: 0;
+    list-style: none;
+    background-color: #1c1c1c;
+    border: 1px solid #333333;
+    min-width: 180px;
+    z-index: 10;
+}
+
+.desplegable a {
+    display: block;
+    margin: 0;
+    padding: 10px 15px;
+}
+
+.desplegable a:hover {
+    background-color: #2a2a2a;
 }
 
 /* Formularis */

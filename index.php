@@ -9,9 +9,6 @@ switch ($accio) {
     case 'llistar-categories':
         include __DIR__ . '/resource_llistar_categories.php';
         break;
-    case 'llistar-productes':
-        include __DIR__ . '/resource_llistar_productes.php';
-        break;
     case 'productes-categoria':
         include __DIR__ . '/resource_productes_categoria.php';
         break;
