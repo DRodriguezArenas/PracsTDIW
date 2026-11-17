@@ -19,7 +19,6 @@
             <li><a href="index.php?accio=logout">Tancar sessió</a></li>
         <?php } else { ?>
             <li><a href="index.php?accio=login">Iniciar sessió</a></li>
-            <li><a href="index.php?accio=registre">Crear un compte</a></li>
         <?php } ?>
     </ul>
 </div>
