@@ -1,8 +1,9 @@
 // js/categories.js
 // Llistat de productes i detall de producte amb FETCH (sense recarregar la pàgina).
+// Afegim &fragment=1 a les URL perquè el servidor ens torni només el tros d'HTML.
 
 document.addEventListener('DOMContentLoaded', () => {
-    const llistat = document.getElementById('productes-categoria');
+    const llistat = document.getElementById('productes-categoria');   // pot no existir
     const detall  = document.getElementById('detall-producte');
 
     // Demana un fragment HTML al servidor i el posa dins del contenidor
@@ -18,31 +19,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---------- 1. Clic a una categoria -> llistat de productes ----------
-    document.querySelectorAll('.categoria').forEach((enllac) => {
-        enllac.addEventListener('click', async (event) => {
-            event.preventDefault();        // evita que el navegador carregui una altra pàgina
+    if (llistat) {
+        document.querySelectorAll('.categoria').forEach((enllac) => {
+            enllac.addEventListener('click', async (event) => {
+                event.preventDefault();        // evita que el navegador carregui una altra pàgina
 
-            document.querySelectorAll('.categoria').forEach((c) => c.classList.remove('activa'));
-            enllac.classList.add('activa');
+                document.querySelectorAll('.categoria').forEach((c) => c.classList.remove('activa'));
+                enllac.classList.add('activa');
 
-            await carregar(`index.php?accio=productes-categoria&categoria=${enllac.dataset.id}`, llistat);
-            llistat.scrollIntoView({ behavior: 'smooth' });
+                await carregar(`index.php?accio=productes-categoria&categoria=${enllac.dataset.id}&fragment=1`, llistat);
+                llistat.scrollIntoView({ behavior: 'smooth' });
+            });
         });
-    });
+    }
 
     // ---------- 2. Detall de producte ----------
     // La classe "veient-producte" al <body> amaga la resta de la pàgina (CSS)
     // i mostra només el detall, com si fos una pàgina nova.
+    if (!detall) return;
+
     async function obrirProducte(id) {
         document.body.classList.add('veient-producte');
         window.scrollTo(0, 0);
-        await carregar(`index.php?accio=detall-producte&producte=${id}`, detall);
+        await carregar(`index.php?accio=detall-producte&producte=${id}&fragment=1`, detall);
     }
 
     function tancarProducte() {
         document.body.classList.remove('veient-producte');
         detall.innerHTML = '';
-        if (llistat.innerHTML !== '') llistat.scrollIntoView();
+        if (llistat && llistat.innerHTML.trim() !== '') llistat.scrollIntoView();
+    }
+
+    // Si la pàgina ja s'ha obert directament en un producte, ho apuntem a l'historial
+    const producteInicial = detall.querySelector('[data-producte]');
+    if (producteInicial) {
+        history.replaceState({ producte: producteInicial.dataset.producte }, '');
     }
 
     // Els productes s'afegeixen després de carregar la pàgina (llistat i "També et pot agradar"),
@@ -56,8 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (event.target.closest('.tornar')) {
-            history.back();                // torna a l'estat anterior (el llistat)
+        // "Tornar": si venim del llistat, hi tornem sense recarregar; si no, seguim l'enllaç
+        if (event.target.closest('.tornar') && llistat && history.state && history.state.producte) {
+            event.preventDefault();
+            history.back();
         }
     });
 
@@ -65,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('popstate', (event) => {
         if (event.state && event.state.producte) {
             obrirProducte(event.state.producte);
-        } else {
+        } else if (llistat) {
             tancarProducte();
         }
     });

@@ -3,11 +3,11 @@
     <p class="buit">Aquest producte no existeix.</p>
 <?php else: ?>
     <nav class="molles">
-        <button type="button" class="tornar">← Tornar a la col·lecció</button>
+        <a class="tornar" href="index.php?accio=productes-categoria&amp;categoria=<?php echo (int) $producte['id_categoria']; ?>">← Tornar a <?php echo htmlspecialchars($producte['categoria']); ?></a>
         <span>Col·leccions / <?php echo htmlspecialchars($producte['categoria']); ?> / <b><?php echo htmlspecialchars($producte['nom']); ?></b></span>
     </nav>
 
-    <div class="detall">
+    <div class="detall" data-producte="<?php echo (int) $producte['id']; ?>">
         <div class="detall-imatge">
             <img src="<?php echo htmlspecialchars($producte['imatge']); ?>"
                  alt="<?php echo htmlspecialchars($producte['nom']); ?>">

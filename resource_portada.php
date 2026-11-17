@@ -6,10 +6,10 @@
     <title>Aurea - Inici</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="css/estils.css">
+    <link rel="stylesheet" href="css/estils.css?v=<?php echo filemtime(__DIR__ . '/css/estils.css'); ?>">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/menu.js" defer></script>
-    <script src="js/categories.js" defer></script>
+    <script src="js/menu.js?v=<?php echo filemtime(__DIR__ . '/js/menu.js'); ?>" defer></script>
+    <script src="js/categories.js?v=<?php echo filemtime(__DIR__ . '/js/categories.js'); ?>" defer></script>
 </head>
 <body>
 

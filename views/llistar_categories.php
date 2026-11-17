@@ -6,7 +6,7 @@
         <?php endif; ?>
         <?php foreach ($categories as $categoria): ?>
             <a href="index.php?accio=productes-categoria&amp;categoria=<?php echo (int) $categoria['id']; ?>"
-               class="categoria"
+               class="categoria<?php echo (int) $categoria['id'] === $idCategoriaTriada ? ' activa' : ''; ?>"
                data-id="<?php echo (int) $categoria['id']; ?>">
                 <div class="categoria-imatge">
                     <img src="<?php echo htmlspecialchars($categoria['imatge']); ?>" alt="<?php echo htmlspecialchars($categoria['nom']); ?>">
@@ -17,7 +17,7 @@
         <?php endforeach; ?>
     </div>
 
-    <div id="productes-categoria"></div>
+    <div id="productes-categoria"><?php if ($productes !== null) { include __DIR__ . '/productes_categoria.php'; } ?></div>
 </section>
 
 <!-- Aquí es carrega el detall del producte (amb FETCH) -->
