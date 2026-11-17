@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Aurea - Inici</title>
     <link rel="stylesheet" href="css/estils.css">
+    <script src="js/categories.js" defer></script>
 </head>
 <body>
 

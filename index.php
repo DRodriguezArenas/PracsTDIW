@@ -12,6 +12,9 @@ switch ($accio) {
     case 'llistar-productes':
         include __DIR__ . '/resource_llistar_productes.php';
         break;
+    case 'productes-categoria':
+        include __DIR__ . '/resource_productes_categoria.php';
+        break;
     case 'detall-producte':
         include __DIR__ . '/resource_detall_producte.php';
         break;

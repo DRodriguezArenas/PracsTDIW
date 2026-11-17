@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Aurea - Categories</title>
     <link rel="stylesheet" href="css/estils.css">
+    <script src="js/categories.js" defer></script>
 </head>
 <body>
 

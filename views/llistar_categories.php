@@ -1,10 +1,16 @@
 <!-- views/llistar_categories.php -->
-<!-- Rep la variable $categories del controlador i en fa una caixa per cadascuna. -->
 <section class="categories">
+    <?php if (empty($categories)): ?>
+        <p>No hi ha categories.</p>
+    <?php endif; ?>
     <?php foreach ($categories as $categoria): ?>
-        <a href="index.php?accio=llistar-productes&categoria=<?php echo $categoria['id']; ?>" class="categoria">
+        <a href="index.php?accio=llistar-productes&amp;categoria=<?php echo (int) $categoria['id']; ?>"
+           class="categoria"
+           data-id="<?php echo (int) $categoria['id']; ?>">
             <img src="<?php echo htmlspecialchars($categoria['imatge']); ?>" alt="<?php echo htmlspecialchars($categoria['nom']); ?>">
             <span><?php echo htmlspecialchars($categoria['nom']); ?></span>
         </a>
     <?php endforeach; ?>
 </section>
+
+<section id="productes-categoria"></section>
