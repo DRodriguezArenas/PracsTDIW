@@ -1,0 +1,17 @@
+<?php
+// models/m_connectaBD.php
+// AQUEST FITXER ÉS UNA PLANTILLA: copia'l com a m_connectaBD.php (sense .exemple)
+// i posa-hi la contrasenya real. m_connectaBD.php NO es puja a GitHub (.gitignore).
+
+function connectaBD(){
+    $servidor = "deic-docencia.uab.cat";
+    $port     = "5432";
+    $DBnom    = "tdiw-e6";
+    $usuari   = "tdiw-e6";
+    $clau     = "LA_TEVA_CONTRASENYA";
+
+    $connexio = pg_connect("host=$servidor port=$port dbname=$DBnom user=$usuari password=$clau")
+                or die("Error connexio BD");
+    return $connexio;
+}
+?>

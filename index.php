@@ -1,0 +1,26 @@
+<?php
+// index.php
+// ENCAMINADOR (router): totes les peticions passen per aquí.
+
+$accio = $_GET['accio'] ?? null;
+
+switch ($accio) {
+    case 'llistar-categories':
+        include __DIR__ . '/resource_llistar_categories.php';
+        break;
+    case 'productes-categoria':                          // FETCH
+        include __DIR__ . '/resource_productes_categoria.php';
+        break;
+    case 'detall-producte':                              // FETCH
+        include __DIR__ . '/resource_detall_producte.php';
+        break;
+    case 'registre':
+        include __DIR__ . '/resource_registre.php';
+        break;
+    case 'login':
+        include __DIR__ . '/resource_login.php';
+        break;
+    default:
+        include __DIR__ . '/resource_portada.php';
+        break;
+}

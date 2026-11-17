@@ -1,0 +1,528 @@
+/* ==========================================================
+   AUREA - Full d'estils
+   Colors: negre #0e0e0e · gris fosc #161616 · línies #2b2b2b
+           daurat #c9a227 · text #f2efe9 · text suau #9d978d
+   ========================================================== */
+
+body {
+    margin: 0;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    background-color: #0e0e0e;
+    color: #f2efe9;
+}
+
+a {
+    color: #f2efe9;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Text petit en majúscules i daurat que va sobre els títols */
+.etiqueta {
+    margin: 0 0 15px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c9a227;
+}
+
+/* ---------- Capçalera ---------- */
+
+header {
+    position: sticky;              /* es queda a dalt en fer scroll */
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 76px;
+    padding: 0 120px;
+    background-color: #0e0e0e;
+    border-bottom: 1px solid #2b2b2b;
+}
+
+.logo {
+    width: 200px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 28px;
+    letter-spacing: 10px;
+    color: #c9a227;
+}
+
+.menu-principal a {
+    margin: 0 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.menu-principal a:hover {
+    color: #c9a227;
+}
+
+/* ---------- Menú d'usuari (jQuery) ---------- */
+
+.menu-usuari {
+    position: relative;
+    width: 200px;
+    text-align: right;
+}
+
+#boto-usuari {
+    width: 42px;
+    height: 42px;
+    padding: 10px;
+    border: 1px solid #2b2b2b;
+    border-radius: 50%;           /* botó rodó */
+    background: none;
+    cursor: pointer;
+}
+
+#boto-usuari:hover {
+    border-color: #c9a227;
+}
+
+#desplegable {
+    display: none;                /* amagat fins que jQuery el mostra */
+    position: absolute;
+    right: 0;
+    top: 55px;
+    width: 210px;
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+    text-align: left;
+    background-color: #161616;
+    border: 1px solid #2b2b2b;
+    border-top: 2px solid #c9a227;
+}
+
+#desplegable a {
+    display: block;
+    padding: 9px 20px;
+    font-size: 13px;
+}
+
+#desplegable a:hover {
+    background-color: #1f1f1f;
+    color: #c9a227;
+}
+
+/* ---------- Botons ---------- */
+
+.boto {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 1px solid #c9a227;
+    background-color: #c9a227;
+    color: #0e0e0e;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.boto:hover {
+    background-color: #e2c25a;
+}
+
+.boto-linia {
+    margin-left: 10px;
+    background-color: transparent;
+    color: #c9a227;
+}
+
+.boto-linia:hover {
+    color: #0e0e0e;
+}
+
+/* ---------- Portada ---------- */
+
+.portada {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 70px 0 90px;
+}
+
+.portada-text {
+    width: 600px;
+}
+
+.portada h1 {
+    font-size: 76px;
+    line-height: 1.05;
+}
+
+.portada-descripcio {
+    margin: 25px 0 40px;
+    color: #9d978d;
+    font-size: 16px;
+}
+
+.portada img {
+    width: 530px;
+    height: 565px;
+    border: 1px solid #c9a227;
+    padding: 12px;
+}
+
+/* ---------- Títols de secció ---------- */
+
+.titol-seccio {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0 40px;
+    text-align: center;
+}
+
+.titol-seccio h2 {
+    font-size: 46px;
+}
+
+.titol-seccio p {
+    color: #9d978d;
+}
+
+/* ---------- Categories ---------- */
+
+#cataleg {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.categories {
+    display: flex;
+    gap: 24px;
+}
+
+.categoria {
+    width: 282px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.categoria img {
+    width: 282px;
+    height: 282px;                /* totes les imatges del mateix tamany */
+    border: 1px solid #2b2b2b;
+}
+
+.categoria h3 {
+    margin-top: 15px;
+    font-size: 28px;
+}
+
+.categoria span {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9d978d;
+}
+
+.categoria:hover img {
+    border-color: #c9a227;
+}
+
+.categoria:hover span {
+    color: #c9a227;
+}
+
+/* ---------- Llistat de productes ---------- */
+
+#productes {
+    margin-top: 60px;
+    scroll-margin-top: 100px;     /* que la capçalera no tapi els productes */
+}
+
+.productes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-top: 50px;
+    border-top: 1px solid #2b2b2b;
+}
+
+.targeta {
+    width: 282px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.targeta img {
+    width: 282px;
+    height: 282px;                /* totes les imatges del mateix tamany */
+    transition: opacity 0.3s;
+}
+
+.targeta:hover img {
+    opacity: 0.8;
+}
+
+.targeta h3 {
+    font-size: 23px;
+}
+
+.targeta:hover h3 {
+    color: #c9a227;
+}
+
+.material {
+    margin: 15px 0 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9d978d;
+}
+
+.preu {
+    margin: 0;
+    color: #c9a227;
+}
+
+/* ---------- Detall de producte ----------
+   Quan el <body> té la classe "veient-producte" (la posa el JavaScript)
+   s'amaga la resta de la pàgina i només es veu el detall. */
+
+#detall {
+    display: none;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+body.veient-producte #detall {
+    display: block;
+}
+
+body.veient-producte .portada,
+body.veient-producte .titol-seccio,
+body.veient-producte #cataleg,
+body.veient-producte .valors {
+    display: none;
+}
+
+.tornar {
+    margin-bottom: 30px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #c9a227;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.detall {
+    display: flex;
+    gap: 70px;
+}
+
+.detall img {
+    width: 600px;
+    height: 600px;
+}
+
+.detall-info {
+    width: 530px;
+}
+
+.detall-categoria {
+    margin: 0 0 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c9a227;
+}
+
+.detall-info h1 {
+    font-size: 52px;
+    line-height: 1.1;
+}
+
+.detall-preu {
+    margin: 15px 0;
+    font-size: 26px;
+    color: #c9a227;
+}
+
+.detall-descripcio {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #2b2b2b;
+    color: #9d978d;
+}
+
+.detall-info label {
+    display: block;
+    margin: 20px 0 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9d978d;
+}
+
+.detall-info select,
+.detall-info input {
+    width: 120px;
+    padding: 10px;
+    background-color: #0e0e0e;
+    border: 1px solid #2b2b2b;
+    color: #f2efe9;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.detall-info .boto {
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.detall-dades {
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.detall-dades li {
+    padding: 12px 0;
+    border-bottom: 1px solid #2b2b2b;
+    font-size: 14px;
+}
+
+.detall-dades span {
+    display: inline-block;
+    width: 150px;
+    color: #9d978d;
+}
+
+/* ---------- Valors (portada) ---------- */
+
+.valors {
+    display: flex;
+    width: 1200px;
+    margin: 100px auto 0;
+    padding: 60px 0;
+    border-top: 1px solid #2b2b2b;
+    text-align: center;
+}
+
+.valors div {
+    width: 400px;
+    padding: 0 30px;
+}
+
+.valors h3 {
+    margin-bottom: 8px;
+    font-size: 27px;
+    color: #c9a227;
+}
+
+.valors p {
+    color: #9d978d;
+    font-size: 14px;
+}
+
+/* ---------- Formularis ---------- */
+
+main {
+    padding: 70px 0 90px;
+}
+
+.formulari {
+    width: 460px;
+    margin: 0 auto;
+    padding: 40px 48px;
+    background-color: #161616;
+    border: 1px solid #2b2b2b;
+    border-top: 2px solid #c9a227;
+}
+
+.formulari h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.formulari label {
+    display: block;
+    margin: 18px 0 7px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9d978d;
+}
+
+.formulari input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    background-color: #0e0e0e;
+    border: 1px solid #2b2b2b;
+    color: #f2efe9;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.formulari input:focus {
+    outline: none;
+    border-color: #c9a227;
+}
+
+.formulari .boto {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.formulari-peu {
+    text-align: center;
+    font-size: 13px;
+    color: #9d978d;
+}
+
+.formulari-peu a {
+    color: #c9a227;
+}
+
+.avis {
+    padding: 10px 14px;
+    border-left: 2px solid #c9a227;
+    background-color: #1f1f1f;
+}
+
+/* ---------- Peu de pàgina ---------- */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    padding: 26px 120px;
+    border-top: 1px solid #2b2b2b;
+    font-size: 12px;
+    color: #9d978d;
+}
+
+.peu-logo {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 20px;
+    letter-spacing: 7px;
+    color: #c9a227;
+}
