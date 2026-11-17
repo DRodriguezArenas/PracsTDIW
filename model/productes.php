@@ -19,7 +19,7 @@ function getProductesCategoria($conn, $idCategoria)
 function getProducte($conn, $idProducte)
 {
     $sql = 'SELECT p.id, p.nom, p.descripcio, p.preu, p.material, p.imatge,
-                   c.nom AS categoria
+                   p.id_categoria, c.nom AS categoria
             FROM producte p
             JOIN categoria c ON c.id = p.id_categoria
             WHERE p.id = $1 AND p.actiu = TRUE';
@@ -40,4 +40,19 @@ function getTalles($conn, $idProducte)
     $talles = pg_fetch_all($result);
 
     return $talles ?: [];
+}
+
+// Altres productes de la mateixa categoria (per a "També et pot agradar")
+function getProductesRelacionats($conn, $idCategoria, $idProducte)
+{
+    $sql = 'SELECT id, nom, preu, imatge, material
+            FROM producte
+            WHERE id_categoria = $1 AND id <> $2 AND actiu = TRUE
+            ORDER BY nom
+            LIMIT 4';
+
+    $result = pg_query_params($conn, $sql, [$idCategoria, $idProducte]);
+    $productes = pg_fetch_all($result);
+
+    return $productes ?: [];
 }

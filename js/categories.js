@@ -1,9 +1,9 @@
 // js/categories.js
+// Llistat de productes i detall de producte amb FETCH (sense recarregar la pàgina).
 
 document.addEventListener('DOMContentLoaded', () => {
     const llistat = document.getElementById('productes-categoria');
     const detall  = document.getElementById('detall-producte');
-    const modal   = document.getElementById('modal-producte');
 
     // Demana un fragment HTML al servidor i el posa dins del contenidor
     async function carregar(url, contenidor) {
@@ -17,10 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function obrirModal()  { modal.classList.add('oberta');    document.body.classList.add('sense-scroll'); }
-    function tancarModal() { modal.classList.remove('oberta'); document.body.classList.remove('sense-scroll'); }
-
-    // 1. Clic a una categoria -> llistat de productes
+    // ---------- 1. Clic a una categoria -> llistat de productes ----------
     document.querySelectorAll('.categoria').forEach((enllac) => {
         enllac.addEventListener('click', async (event) => {
             event.preventDefault();        // evita que el navegador carregui una altra pàgina
@@ -33,30 +30,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Clic a un producte -> detall del producte dins la finestra emergent
-    // Els productes s'afegeixen després de carregar la pàgina, per això escoltem
-    // els clics al contenidor i mirem si s'ha clicat dins d'un .producte
-    llistat.addEventListener('click', (event) => {
+    // ---------- 2. Detall de producte ----------
+    // La classe "veient-producte" al <body> amaga la resta de la pàgina (CSS)
+    // i mostra només el detall, com si fos una pàgina nova.
+    async function obrirProducte(id) {
+        document.body.classList.add('veient-producte');
+        window.scrollTo(0, 0);
+        await carregar(`index.php?accio=detall-producte&producte=${id}`, detall);
+    }
+
+    function tancarProducte() {
+        document.body.classList.remove('veient-producte');
+        detall.innerHTML = '';
+        if (llistat.innerHTML !== '') llistat.scrollIntoView();
+    }
+
+    // Els productes s'afegeixen després de carregar la pàgina (llistat i "També et pot agradar"),
+    // per això escoltem els clics a tot el document i mirem si s'ha clicat dins d'un .producte
+    document.addEventListener('click', (event) => {
         const producte = event.target.closest('.producte');
-        if (!producte) return;
+        if (producte) {
+            event.preventDefault();
+            history.pushState({ producte: producte.dataset.id }, '', `#producte-${producte.dataset.id}`);
+            obrirProducte(producte.dataset.id);
+            return;
+        }
 
-        event.preventDefault();
-        obrirModal();
-        carregar(`index.php?accio=detall-producte&producte=${producte.dataset.id}`, detall);
+        if (event.target.closest('.tornar')) {
+            history.back();                // torna a l'estat anterior (el llistat)
+        }
     });
 
-    // 3. Tancar la finestra: botó ×, clic a fora o tecla Esc
-    modal.addEventListener('click', (event) => {
-        if (event.target === modal || event.target.closest('.tancar-modal')) tancarModal();
-    });
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') tancarModal();
+    // Botó "enrere" del navegador
+    window.addEventListener('popstate', (event) => {
+        if (event.state && event.state.producte) {
+            obrirProducte(event.state.producte);
+        } else {
+            tancarProducte();
+        }
     });
 
-    // 4. El botó "Afegir al cabàs" encara no fa res (sessió 4): evitem que recarregui la pàgina
+    // ---------- 3. Formulari del detall ----------
+    // Botons − i + de la quantitat
+    detall.addEventListener('click', (event) => {
+        const boto = event.target.closest('.menys, .mes');
+        if (!boto) return;
+
+        const input = detall.querySelector('.quantitat input');
+        const valor = parseInt(input.value, 10) || 1;
+        input.value = boto.classList.contains('mes') ? valor + 1 : Math.max(1, valor - 1);
+    });
+
+    // "Afegir al cabàs" encara no fa res (sessió 4): evitem que recarregui la pàgina
     detall.addEventListener('submit', (event) => {
         event.preventDefault();
-        const missatge = detall.querySelector('.missatge-cabas');
-        if (missatge) missatge.textContent = 'El cabàs estarà disponible molt aviat.';
+        detall.querySelector('.missatge-cabas').textContent = 'El cabàs estarà disponible molt aviat.';
     });
 });

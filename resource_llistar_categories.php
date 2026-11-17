@@ -3,7 +3,6 @@
 <html lang="ca">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aurea - Col·leccions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@400;500;600&display=swap">
@@ -18,9 +17,10 @@
     <?php require __DIR__ . '/controller/menu_superior.php'; ?>
 </header>
 
-<div class="titol-seccio">
-    <h2>Col·leccions</h2>
-    <p>Tria una categoria per veure les seves joies</p>
+<div class="titol-seccio titol-pagina">
+    <p class="titol-etiqueta">Botiga</p>
+    <h2>Les nostres col·leccions</h2>
+    <p>Tria una categoria per veure les seves peces</p>
 </div>
 
 <?php require __DIR__ . '/controller/llistar_categories.php'; ?>

@@ -8,6 +8,12 @@ $idProducte = (int) ($_GET['producte'] ?? 0);
 
 $conn = connectaDb();
 $producte = getProducte($conn, $idProducte);
-$talles = $producte ? getTalles($conn, $idProducte) : [];
+
+$talles = [];
+$relacionats = [];
+if ($producte) {
+    $talles = getTalles($conn, $idProducte);
+    $relacionats = getProductesRelacionats($conn, (int) $producte['id_categoria'], $idProducte);
+}
 
 include __DIR__ . '/../views/detall_producte.php';
