@@ -91,16 +91,16 @@ INSERT INTO categoria (nom, imatge) VALUES
   ('Polseres',  'img/polseres.svg');   -- id 4
 
 INSERT INTO producte (nom, descripcio, preu, material, imatge, id_categoria) VALUES
-  ('Anell de plata',        'Anell senzill de plata de llei.',               45.00,  'plata 925',         'img/anells.svg',    1),
-  ('Anell amb aiguamarina', 'Anell fet a mà amb plata reciclada.',           89.00,  'plata reciclada',   'img/anells.svg',    1),
-  ('Aliança d''or',         'Aliança clàssica d''or groc.',                  349.00, 'or 18k',            'img/anells.svg',    1),
-  ('Anell amb robí',        'Anell amb un robí central.',                    120.00, 'plata i robí',      'img/anells.svg',    1),
-  ('Arracades de perla',    'Arracades amb perla cultivada.',                59.00,  'plata i perla',     'img/arracades.svg', 2),
-  ('Arracades d''aro',      'Aros petits per a cada dia.',                   35.00,  'plata 925',         'img/arracades.svg', 2),
-  ('Collaret de cor',       'Cadena fina amb penjoll en forma de cor.',      65.00,  'plata 925',         'img/collarets.svg', 3),
-  ('Collaret d''or',        'Cadena d''or de 45 cm.',                        210.00, 'or 18k',            'img/collarets.svg', 3),
-  ('Polsera de cuir',       'Polsera de cuir amb tancament de plata.',       29.00,  'cuir i plata',      'img/polseres.svg',  4),
-  ('Polsera rígida',        'Polsera rígida d''acer daurat.',                49.00,  'acer daurat',       'img/polseres.svg',  4);
+  ('Anell de plata',        'Anell senzill de plata de llei.',               45.00,  'plata 925',         'img/productes/anell-plata.svg',    1),
+  ('Anell amb aiguamarina', 'Anell fet a mà amb plata reciclada.',           89.00,  'plata reciclada',   'img/productes/anell-aiguamarina.svg',    1),
+  ('Aliança d''or',         'Aliança clàssica d''or groc.',                  349.00, 'or 18k',            'img/productes/alianca-or.svg',    1),
+  ('Anell amb robí',        'Anell amb un robí central.',                    120.00, 'plata i robí',      'img/productes/anell-robi.svg',    1),
+  ('Arracades de perla',    'Arracades amb perla cultivada.',                59.00,  'plata i perla',     'img/productes/arracades-perla.svg', 2),
+  ('Arracades d''aro',      'Aros petits per a cada dia.',                   35.00,  'plata 925',         'img/productes/arracades-aro.svg', 2),
+  ('Collaret de cor',       'Cadena fina amb penjoll en forma de cor.',      65.00,  'plata 925',         'img/productes/collaret-cor.svg', 3),
+  ('Collaret d''or',        'Cadena d''or de 45 cm.',                        210.00, 'or 18k',            'img/productes/collaret-or.svg', 3),
+  ('Polsera de cuir',       'Polsera de cuir amb tancament de plata.',       29.00,  'cuir i plata',      'img/productes/polsera-cuir.svg',  4),
+  ('Polsera rígida',        'Polsera rígida d''acer daurat.',                49.00,  'acer daurat',       'img/productes/polsera-rigida.svg',  4);
 
 INSERT INTO talla (talla, estoc, id_producte) VALUES
   ('14', 5, 1), ('16', 3, 1),

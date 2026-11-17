@@ -1,84 +1,226 @@
+/* ==========================================================
+   AUREA - Full d'estils
+   ========================================================== */
+
+/* Colors que es repeteixen a tota la web */
+:root {
+    --negre: #0f0f0f;
+    --fosc: #1a1a1a;
+    --fosc-2: #242424;
+    --linia: #2e2e2e;
+    --or: #c9a227;
+    --or-clar: #e8c547;
+    --text: #f2efe9;
+    --text-suau: #a7a29a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #111111;
-    color: white;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    background-color: var(--negre);
+    color: var(--text);
+}
+
+/* Quan la finestra del producte està oberta, la pàgina de darrere no es mou */
+body.sense-scroll {
+    overflow: hidden;
 }
 
 a {
-    color: white;
+    color: var(--text);
     text-decoration: none;
 }
 
-/* Capçalera */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1, h2, h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+}
+
+/* ---------- Capçalera ---------- */
 
 header {
+    position: sticky;              /* es queda a dalt en fer scroll */
+    top: 0;
+    z-index: 20;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 10%;
-    background-color: #111111;
+    padding: 18px 8%;
+    background-color: rgba(15, 15, 15, 0.95);
+    border-bottom: 1px solid var(--linia);
 }
 
 .logo {
+    font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 30px;
-    font-weight: bold;
-    letter-spacing: 8px;
-    color: #c9a227;
+    font-weight: 600;
+    letter-spacing: 10px;
+    color: var(--or);
 }
 
-nav a {
-    margin-left: 25px;
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav > a {
+    margin-left: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+nav > a:hover {
+    color: var(--or);
+    border-bottom-color: var(--or);
+}
+
+/* Menú desplegable d'usuari (jQuery) */
+
+.menu-usuari {
+    position: relative;
+    margin-left: 30px;
+}
+
+.boto-usuari {
+    background: none;
+    border: 1px solid var(--or);
+    color: var(--or);
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.boto-usuari:hover {
+    background-color: var(--or);
+    color: var(--negre);
+}
+
+.desplegable {
+    display: none;                 /* jQuery el mostra en clicar */
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin: 8px 0 0;
+    padding: 6px 0;
+    list-style: none;
+    background-color: var(--fosc);
+    border: 1px solid var(--linia);
+    border-top: 2px solid var(--or);
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.desplegable a {
+    display: block;
+    padding: 10px 18px;
     font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
 }
 
-nav a:hover {
-    color: #c9a227;
+.desplegable a:hover {
+    background-color: var(--fosc-2);
+    color: var(--or);
 }
 
-/* Portada */
-
-.portada {
-    background-color: #1c1c1c;
-    text-align: center;
-    padding: 80px 20px;
-}
-
-.portada img {
-    width: 100px;
-}
-
-.portada h1 {
-    font-weight: normal;
-    font-size: 48px;
-    letter-spacing: 12px;
-    text-transform: uppercase;
-    color: #c9a227;
-    margin: 30px 0 10px;
-}
-
-.portada p {
-    margin-bottom: 30px;
-}
+/* ---------- Botons ---------- */
 
 .boto {
-    background-color: #c9a227;
-    color: #111111;
-    padding: 10px 20px;
-    font-size: 13px;
-    font-weight: bold;
+    display: inline-block;
+    background-color: var(--or);
+    color: var(--negre);
+    padding: 14px 30px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .boto:hover {
-    background-color: #e8c547;
+    background-color: var(--or-clar);
+    transform: translateY(-2px);
 }
 
-/* Franja de categories */
+/* ---------- Portada ---------- */
+
+.portada {
+    text-align: center;
+    padding: 110px 20px 120px;
+    background: radial-gradient(circle at 50% 35%, #2a2418 0%, var(--negre) 65%);
+}
+
+.portada img {
+    width: 90px;
+    margin: 0 auto;
+}
+
+.portada h1 {
+    font-size: 72px;
+    letter-spacing: 18px;
+    text-transform: uppercase;
+    color: var(--or);
+    margin: 30px 0 5px;
+}
+
+.portada p {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 24px;
+    font-style: italic;
+    color: var(--text-suau);
+    margin: 0 0 40px;
+}
+
+/* ---------- Títols de secció ---------- */
+
+.titol-seccio {
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+.titol-seccio h2 {
+    font-size: 40px;
+    color: var(--or);
+    margin: 0;
+}
+
+.titol-seccio h2::after {          /* ratlleta daurada sota el títol */
+    content: "";
+    display: block;
+    width: 50px;
+    height: 1px;
+    margin: 12px auto;
+    background-color: var(--or);
+}
+
+.titol-seccio p {
+    color: var(--text-suau);
+    margin: 0;
+}
+
+/* ---------- Franja de categories ---------- */
 
 .categories {
     display: flex;
@@ -88,177 +230,521 @@ nav a:hover {
 .categoria {
     width: 25%;
     position: relative;
+    overflow: hidden;
 }
 
 .categoria img {
     width: 100%;
-    display: block;
+    transition: transform 0.5s;
+}
+
+.categoria:hover img {
+    transform: scale(1.06);
+}
+
+/* Degradat fosc a baix perquè el nom es llegeixi bé */
+.categoria::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 50%);
 }
 
 .categoria span {
     position: absolute;
-    bottom: 15px;
-    left: 15px;
-    font-size: 20px;
-    text-transform: uppercase;
-    background-color: #111111;
-    padding: 5px 10px;
+    left: 25px;
+    bottom: 22px;
+    z-index: 1;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 30px;
+    letter-spacing: 3px;
 }
 
-.categoria:hover img {
-    opacity: 0.7;
+.categoria span::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background-color: var(--or);
+    transition: width 0.3s;
 }
 
-/* Pàgines interiors */
-
-main {
-    width: 80%;
-    margin: 30px auto;
-}
-
-h2 {
-    color: #c9a227;
-    font-weight: normal;
-    text-transform: uppercase;
-}
-
-.productes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.caixa {
-    width: 25%;
-    background-color: #1c1c1c;
-    text-align: center;
-    padding-bottom: 10px;
-}
-
-.caixa img {
+.categoria:hover span::after,
+.categoria.activa span::after {
     width: 100%;
 }
 
-.caixa:hover {
-    outline: 2px solid #c9a227;
+.categoria.activa {
+    outline: 2px solid var(--or);
+    outline-offset: -2px;
 }
 
-.caixa p {
-    color: #c9a227;
+/* ---------- Llistat de productes ---------- */
+
+#productes-categoria {
+    width: 84%;
+    margin: 0 auto;
+    padding: 50px 0 20px;
+    scroll-margin-top: 60px;       /* que la capçalera fixa no tapi els productes */
 }
 
-.detall {
-    display: flex;
-    gap: 30px;
+#productes-categoria:empty {
+    padding: 0;
 }
 
-.detall img {
-    width: 350px;
+.productes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 28px;
 }
 
-.preu {
-    font-size: 28px;
-    color: #c9a227;
+.targeta {
+    background-color: var(--fosc);
+    border: 1px solid var(--linia);
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 
-#productes-categoria,
-#detall-producte {
-    width: 80%;
-    margin: 30px auto;
+.targeta:hover {
+    transform: translateY(-6px);
+    border-color: var(--or);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-.afegir-cabas select {
-    padding: 5px;
-    margin-right: 15px;
+.targeta-imatge {
+    overflow: hidden;
 }
 
-/* Menú desplegable d'usuari */
-
-nav {
-    display: flex;
-    align-items: center;
+.targeta-imatge img {
+    width: 100%;
+    transition: transform 0.4s;
 }
 
-.menu-usuari {
-    position: relative;
-    margin-left: 25px;
+.targeta:hover .targeta-imatge img {
+    transform: scale(1.05);
 }
 
-.boto-usuari {
-    background: none;
-    border: 1px solid #c9a227;
-    color: #c9a227;
-    padding: 6px 12px;
-    font-size: 13px;
-    font-weight: bold;
+.targeta-info {
+    padding: 18px 20px 22px;
+    text-align: center;
+}
+
+.targeta-material {
+    margin: 0;
+    font-size: 11px;
+    letter-spacing: 2px;
     text-transform: uppercase;
+    color: var(--text-suau);
+}
+
+.targeta h3 {
+    font-size: 24px;
+    margin: 6px 0;
+}
+
+.targeta-preu {
+    margin: 0 0 12px;
+    color: var(--or);
+    font-weight: 600;
+}
+
+.targeta-veure {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-suau);
+    transition: color 0.2s;
+}
+
+.targeta:hover .targeta-veure {
+    color: var(--or);
+}
+
+/* ---------- Finestra emergent (detall del producte) ---------- */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px 20px;
+    overflow-y: auto;
+}
+
+.modal.oberta {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.modal-contingut {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    background-color: var(--fosc);
+    border: 1px solid var(--linia);
+    border-top: 3px solid var(--or);
+    animation: apareixer 0.25s ease-out;
+}
+
+@keyframes apareixer {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.tancar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 1;
+    background: none;
+    border: none;
+    color: var(--text-suau);
+    font-size: 34px;
+    line-height: 1;
     cursor: pointer;
 }
 
-.desplegable {
-    display: none;          /* jQuery el mostra en clicar */
-    position: absolute;
-    right: 0;
-    top: 100%;
-    margin: 5px 0 0;
-    padding: 0;
-    list-style: none;
-    background-color: #1c1c1c;
-    border: 1px solid #333333;
-    min-width: 180px;
-    z-index: 10;
+.tancar-modal:hover {
+    color: var(--or);
 }
 
-.desplegable a {
-    display: block;
+/* ---------- Detall de producte ---------- */
+
+.detall {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.detall-imatge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detall-info {
+    padding: 45px 45px 40px;
+}
+
+.detall-categoria {
     margin: 0;
-    padding: 10px 15px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--or);
 }
 
-.desplegable a:hover {
-    background-color: #2a2a2a;
+.detall-info h2 {
+    font-size: 42px;
+    line-height: 1.1;
+    margin: 8px 0 10px;
 }
 
-/* Formularis */
+.detall-preu {
+    font-size: 26px;
+    color: var(--or);
+    margin: 0 0 20px;
+}
+
+.detall-descripcio {
+    color: var(--text-suau);
+    margin: 0 0 25px;
+}
+
+.detall-dades {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px;
+    border-top: 1px solid var(--linia);
+}
+
+.detall-dades li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--linia);
+    font-size: 14px;
+}
+
+.detall-dades span {
+    color: var(--text-suau);
+}
+
+.etiqueta {
+    margin: 0 0 8px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-suau);
+}
+
+/* Talles com a botons: amaguem el cercle del radio i pintem l'etiqueta */
+.talles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.talla input {
+    display: none;
+}
+
+.talla span {
+    display: inline-block;
+    min-width: 48px;
+    padding: 8px 12px;
+    text-align: center;
+    border: 1px solid var(--linia);
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.talla span:hover {
+    border-color: var(--text-suau);
+}
+
+.talla input:checked + span {
+    border-color: var(--or);
+    color: var(--or);
+}
+
+.talla.exhaurida span {
+    opacity: 0.35;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+.fila-comprar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.fila-comprar .etiqueta {
+    margin: 0;
+}
+
+.fila-comprar input {
+    width: 70px;
+    padding: 12px 10px;
+    background-color: var(--fosc-2);
+    border: 1px solid var(--linia);
+    color: var(--text);
+    font-family: inherit;
+}
+
+.fila-comprar .boto {
+    flex: 1;
+}
+
+.missatge-cabas {
+    min-height: 20px;
+    margin: 12px 0 0;
+    font-size: 13px;
+    color: var(--or);
+}
+
+/* ---------- Valors (portada) ---------- */
+
+.valors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 84%;
+    margin: 70px auto;
+    text-align: center;
+}
+
+.valors div {
+    padding: 30px 25px;
+    border: 1px solid var(--linia);
+}
+
+.valors h3 {
+    font-size: 26px;
+    color: var(--or);
+    margin: 0 0 8px;
+}
+
+.valors p {
+    margin: 0;
+    color: var(--text-suau);
+    font-size: 14px;
+}
+
+/* ---------- Formularis ---------- */
+
+main {
+    width: 84%;
+    margin: 0 auto;
+    padding: 60px 0;
+}
 
 .formulari {
-    width: 320px;
+    max-width: 420px;
     margin: 0 auto;
-    background-color: #1c1c1c;
-    padding: 20px 30px 30px;
+    background-color: var(--fosc);
+    border: 1px solid var(--linia);
+    border-top: 3px solid var(--or);
+    padding: 35px 40px 40px;
+}
+
+.formulari h2 {
+    font-size: 36px;
+    text-align: center;
+    color: var(--or);
+    margin: 0;
+}
+
+.formulari-subtitol {
+    text-align: center;
+    color: var(--text-suau);
+    margin: 0 0 15px;
 }
 
 .formulari label {
     display: block;
-    margin-top: 12px;
-    font-size: 14px;
+    margin: 16px 0 6px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-suau);
 }
 
 .formulari input {
     width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    background-color: #2a2a2a;
-    color: white;
-    border: 1px solid #444444;
+    padding: 12px;
+    background-color: var(--fosc-2);
+    border: 1px solid var(--linia);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+.formulari input:focus {
+    outline: none;
+    border-color: var(--or);
 }
 
 .formulari .boto {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 28px;
 }
 
-input[type="number"] {
-    width: 60px;
-    padding: 5px;
+.formulari-peu {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-suau);
+    margin: 20px 0 0;
 }
 
-/* Peu */
+.formulari-peu a {
+    color: var(--or);
+}
+
+.avis {
+    padding: 10px 14px;
+    border-left: 3px solid var(--or);
+    background-color: var(--fosc-2);
+    font-size: 14px;
+}
+
+.buit,
+.carregant {
+    text-align: center;
+    color: var(--text-suau);
+    padding: 30px;
+}
+
+/* ---------- Peu de pàgina ---------- */
 
 footer {
+    margin-top: 40px;
+    padding: 50px 8% 25px;
+    background-color: #0a0a0a;
+    border-top: 1px solid var(--linia);
+    color: var(--text-suau);
+    font-size: 14px;
+}
+
+.peu-columnes {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+}
+
+.peu-logo {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 26px;
+    letter-spacing: 8px;
+    color: var(--or);
+    margin: 0 0 8px;
+}
+
+footer h4 {
+    margin: 0 0 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text);
+}
+
+footer a {
+    display: block;
+    color: var(--text-suau);
+    margin-bottom: 6px;
+}
+
+footer a:hover {
+    color: var(--or);
+}
+
+.peu-columnes p {
+    margin: 0 0 6px;
+}
+
+.peu-copy {
     text-align: center;
-    padding: 15px;
-    font-size: 13px;
-    color: #888888;
-    border-top: 1px solid #333333;
+    margin: 40px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--linia);
+    font-size: 12px;
+}
+
+/* ---------- Mòbil i pantalles petites ---------- */
+
+@media (max-width: 800px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 5%;
+    }
+
+    nav > a,
+    .menu-usuari {
+        margin: 0 10px;
+    }
+
+    .portada h1 {
+        font-size: 48px;
+        letter-spacing: 10px;
+    }
+
+    .categoria {
+        width: 50%;
+    }
+
+    .detall,
+    .valors,
+    .peu-columnes {
+        grid-template-columns: 1fr;
+    }
+
+    .detall-info {
+        padding: 30px 25px;
+    }
 }

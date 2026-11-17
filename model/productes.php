@@ -3,7 +3,7 @@
 
 function getProductesCategoria($conn, $idCategoria)
 {
-    $sql = 'SELECT id, nom, preu, imatge
+    $sql = 'SELECT id, nom, preu, imatge, material
             FROM producte
             WHERE id_categoria = $1 AND actiu = TRUE
             ORDER BY nom';
@@ -15,11 +15,14 @@ function getProductesCategoria($conn, $idCategoria)
 }
 
 // Un sol producte: fem servir pg_fetch_assoc perquè només hi ha una fila.
+// El JOIN ens dona també el nom de la seva categoria.
 function getProducte($conn, $idProducte)
 {
-    $sql = 'SELECT id, nom, descripcio, preu, material, imatge
-            FROM producte
-            WHERE id = $1 AND actiu = TRUE';
+    $sql = 'SELECT p.id, p.nom, p.descripcio, p.preu, p.material, p.imatge,
+                   c.nom AS categoria
+            FROM producte p
+            JOIN categoria c ON c.id = p.id_categoria
+            WHERE p.id = $1 AND p.actiu = TRUE';
 
     $result = pg_query_params($conn, $sql, [$idProducte]);
 
