@@ -1,462 +1,309 @@
 /* ==========================================================
-   AUREA - Full d'estils (pensat per a ordinador)
+   AUREA - Full d'estils
+   Colors: negre #0e0e0e · gris fosc #161616 · línies #2b2b2b
+           daurat #c9a227 · text #f2efe9 · text suau #9d978d
    ========================================================== */
-
-/* Colors i mides que es repeteixen a tota la web */
-:root {
-    --negre: #0e0e0e;
-    --fosc: #161616;
-    --fosc-2: #1f1f1f;
-    --linia: #2b2b2b;
-    --or: #c9a227;
-    --or-clar: #e2c25a;
-    --crema: #efe7d9;
-    --text: #f2efe9;
-    --text-suau: #9d978d;
-    --amplada: 1200px;            /* amplada màxima del contingut */
-}
-
-* {
-    box-sizing: border-box;
-}
 
 body {
     margin: 0;
-    min-width: 1100px;
     font-family: "Montserrat", Arial, sans-serif;
     font-size: 15px;
     line-height: 1.6;
-    background-color: var(--negre);
-    color: var(--text);
+    background-color: #0e0e0e;
+    color: #f2efe9;
 }
 
 a {
-    color: inherit;
+    color: #f2efe9;
     text-decoration: none;
-}
-
-img {
-    display: block;
-    max-width: 100%;
 }
 
 h1, h2, h3 {
     font-family: "Cormorant Garamond", Georgia, serif;
-    font-weight: 400;
+    font-weight: normal;
     margin: 0;
 }
 
-/* ==========================================================
-   CAPÇALERA
-   ========================================================== */
+/* Text petit en majúscules i daurat que va sobre els títols */
+.etiqueta {
+    margin: 0 0 15px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c9a227;
+}
+
+/* ---------- Capçalera ---------- */
 
 header {
     position: sticky;              /* es queda a dalt en fer scroll */
     top: 0;
-    z-index: 20;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;   /* logo | menú al centre | usuari */
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     height: 76px;
-    padding: 0 max(40px, calc((100% - var(--amplada)) / 2));
-    background-color: rgba(14, 14, 14, 0.96);
-    border-bottom: 1px solid var(--linia);
+    padding: 0 120px;
+    background-color: #0e0e0e;
+    border-bottom: 1px solid #2b2b2b;
 }
 
 .logo {
-    justify-self: start;
+    width: 200px;
     font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 28px;
-    font-weight: 600;
     letter-spacing: 10px;
-    color: var(--or);
-}
-
-.menu-principal {
-    display: flex;
-    gap: 42px;
+    color: #c9a227;
 }
 
 .menu-principal a {
-    position: relative;
+    margin: 0 20px;
     font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--text);
-    transition: color 0.2s;
-}
-
-/* ratlla daurada que creix en passar el ratolí */
-.menu-principal a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 1px;
-    background-color: var(--or);
-    transition: width 0.25s;
 }
 
 .menu-principal a:hover {
-    color: var(--or);
+    color: #c9a227;
 }
 
-.menu-principal a:hover::after {
-    width: 100%;
-}
-
-/* ---------- Menú desplegable d'usuari (jQuery) ---------- */
+/* ---------- Menú d'usuari (jQuery) ---------- */
 
 .menu-usuari {
-    justify-self: end;
     position: relative;
+    width: 200px;
+    text-align: right;
 }
 
-.boto-usuari {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#boto-usuari {
     width: 42px;
     height: 42px;
-    padding: 0;
-    border: 1px solid var(--linia);
-    border-radius: 50%;
+    padding: 10px;
+    border: 1px solid #2b2b2b;
+    border-radius: 50%;           /* botó rodó */
     background: none;
-    color: var(--text);
     cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
 }
 
-.boto-usuari:hover {
-    border-color: var(--or);
-    color: var(--or);
+#boto-usuari:hover {
+    border-color: #c9a227;
 }
 
-.desplegable {
-    display: none;                 /* jQuery el mostra en clicar */
+#desplegable {
+    display: none;                /* amagat fins que jQuery el mostra */
     position: absolute;
     right: 0;
-    top: calc(100% + 14px);
-    min-width: 220px;
+    top: 55px;
+    width: 210px;
     margin: 0;
     padding: 8px 0;
     list-style: none;
-    background-color: var(--fosc);
-    border: 1px solid var(--linia);
-    border-top: 2px solid var(--or);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+    text-align: left;
+    background-color: #161616;
+    border: 1px solid #2b2b2b;
+    border-top: 2px solid #c9a227;
 }
 
-.desplegable-titol {
-    padding: 8px 20px 10px;
-    margin-bottom: 4px;
-    border-bottom: 1px solid var(--linia);
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: 20px;
-    color: var(--or);
-}
-
-.desplegable a {
+#desplegable a {
     display: block;
     padding: 9px 20px;
     font-size: 13px;
-    transition: background-color 0.2s, color 0.2s;
 }
 
-.desplegable a:hover {
-    background-color: var(--fosc-2);
-    color: var(--or);
+#desplegable a:hover {
+    background-color: #1f1f1f;
+    color: #c9a227;
 }
 
-/* ==========================================================
-   BOTONS
-   ========================================================== */
+/* ---------- Botons ---------- */
 
 .boto {
     display: inline-block;
-    padding: 15px 32px;
-    border: 1px solid var(--or);
-    background-color: var(--or);
-    color: var(--negre);
+    padding: 15px 30px;
+    border: 1px solid #c9a227;
+    background-color: #c9a227;
+    color: #0e0e0e;
     font-family: inherit;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
 }
 
 .boto:hover {
-    background-color: var(--or-clar);
-    border-color: var(--or-clar);
+    background-color: #e2c25a;
 }
 
 .boto-linia {
+    margin-left: 10px;
     background-color: transparent;
-    color: var(--or);
+    color: #c9a227;
 }
 
 .boto-linia:hover {
-    background-color: var(--or);
-    color: var(--negre);
+    color: #0e0e0e;
 }
 
-/* ==========================================================
-   PORTADA
-   ========================================================== */
+/* ---------- Portada ---------- */
 
 .portada {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
+    display: flex;
     align-items: center;
     gap: 70px;
-    max-width: var(--amplada);
+    width: 1200px;
     margin: 0 auto;
     padding: 70px 0 90px;
 }
 
-.portada-etiqueta,
-.titol-etiqueta {
-    margin: 0 0 18px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--or);
+.portada-text {
+    width: 600px;
 }
 
 .portada h1 {
     font-size: 76px;
-    line-height: 1.02;
-    color: var(--text);
+    line-height: 1.05;
 }
 
 .portada-descripcio {
-    max-width: 470px;
-    margin: 28px 0 40px;
-    color: var(--text-suau);
+    margin: 25px 0 40px;
+    color: #9d978d;
     font-size: 16px;
 }
 
-.portada-botons {
-    display: flex;
-    gap: 16px;
+.portada img {
+    width: 530px;
+    height: 565px;
+    border: 1px solid #c9a227;
+    padding: 12px;
 }
 
-.portada-imatge {
-    position: relative;
-}
-
-/* marc daurat desplaçat darrere la imatge */
-.portada-imatge::before {
-    content: "";
-    position: absolute;
-    inset: 22px -22px -22px 22px;
-    border: 1px solid var(--or);
-}
-
-.portada-imatge img {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 15 / 16;
-    object-fit: cover;
-}
-
-/* ==========================================================
-   TÍTOLS DE SECCIÓ
-   ========================================================== */
+/* ---------- Títols de secció ---------- */
 
 .titol-seccio {
-    max-width: var(--amplada);
+    width: 1200px;
     margin: 0 auto;
-    padding: 40px 0 36px;
+    padding: 50px 0 40px;
     text-align: center;
-    border-top: 1px solid var(--linia);
-}
-
-.titol-pagina {
-    border-top: none;
-    padding-top: 70px;
 }
 
 .titol-seccio h2 {
     font-size: 46px;
 }
 
-.titol-seccio p:last-child:not(.titol-etiqueta) {
-    margin: 10px 0 0;
-    color: var(--text-suau);
+.titol-seccio p {
+    color: #9d978d;
 }
 
-/* ==========================================================
-   CATEGORIES
-   ========================================================== */
+/* ---------- Categories ---------- */
 
 #cataleg {
-    max-width: var(--amplada);
+    width: 1200px;
     margin: 0 auto;
 }
 
 .categories {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* totes iguals */
+    display: flex;
     gap: 24px;
 }
 
 .categoria {
-    display: block;
+    width: 282px;
     text-align: center;
+    cursor: pointer;
 }
 
-.categoria-imatge {
-    overflow: hidden;
-    aspect-ratio: 1 / 1;           /* totes les imatges quadrades i del mateix tamany */
-    border: 1px solid var(--linia);
-    transition: border-color 0.3s;
-}
-
-.categoria-imatge img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s;
+.categoria img {
+    width: 282px;
+    height: 282px;                /* totes les imatges del mateix tamany */
+    border: 1px solid #2b2b2b;
 }
 
 .categoria h3 {
-    margin-top: 18px;
+    margin-top: 15px;
     font-size: 28px;
-    letter-spacing: 1px;
 }
 
 .categoria span {
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--text-suau);
-    transition: color 0.2s;
+    color: #9d978d;
 }
 
-.categoria:hover .categoria-imatge img {
-    transform: scale(1.06);
+.categoria:hover img {
+    border-color: #c9a227;
 }
 
-.categoria:hover span,
-.categoria.activa span {
-    color: var(--or);
+.categoria:hover span {
+    color: #c9a227;
 }
 
-.categoria.activa .categoria-imatge {
-    border-color: var(--or);
-}
+/* ---------- Llistat de productes ---------- */
 
-/* ==========================================================
-   LLISTAT DE PRODUCTES
-   ========================================================== */
-
-#productes-categoria {
-    scroll-margin-top: 100px;      /* que la capçalera fixa no tapi els productes */
-}
-
-#productes-categoria:not(:empty) {
+#productes {
     margin-top: 60px;
-    padding-top: 50px;
-    border-top: 1px solid var(--linia);
+    scroll-margin-top: 100px;     /* que la capçalera no tapi els productes */
 }
 
 .productes {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-top: 50px;
+    border-top: 1px solid #2b2b2b;
 }
 
 .targeta {
-    display: block;
-}
-
-.targeta-imatge {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 1 / 1;           /* mateix tamany per a totes */
-    background-color: var(--crema);
-}
-
-.targeta-imatge img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
-
-/* franja "Veure la peça" que puja en passar el ratolí */
-.targeta-veure {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 13px;
-    background-color: rgba(14, 14, 14, 0.88);
-    color: var(--or);
+    width: 282px;
     text-align: center;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transform: translateY(100%);
-    transition: transform 0.3s;
+    cursor: pointer;
 }
 
-.targeta:hover .targeta-imatge img {
-    transform: scale(1.05);
+.targeta img {
+    width: 282px;
+    height: 282px;                /* totes les imatges del mateix tamany */
+    transition: opacity 0.3s;
 }
 
-.targeta:hover .targeta-veure {
-    transform: translateY(0);
-}
-
-.targeta-info {
-    padding: 16px 4px 0;
-    text-align: center;
-}
-
-.targeta-material {
-    margin: 0;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-suau);
+.targeta:hover img {
+    opacity: 0.8;
 }
 
 .targeta h3 {
-    margin: 4px 0 2px;
     font-size: 23px;
-    white-space: nowrap;           /* el nom sempre en una línia: targetes iguals */
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.targeta-preu {
+.targeta:hover h3 {
+    color: #c9a227;
+}
+
+.material {
+    margin: 15px 0 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9d978d;
+}
+
+.preu {
     margin: 0;
-    color: var(--or);
-    font-weight: 500;
+    color: #c9a227;
 }
 
-/* ==========================================================
-   DETALL DE PRODUCTE
-   Quan el <body> té la classe "veient-producte" amaguem la resta
-   de la pàgina i només es veu el detall (com una pàgina nova).
-   ========================================================== */
+/* ---------- Detall de producte ----------
+   Quan el <body> té la classe "veient-producte" (la posa el JavaScript)
+   s'amaga la resta de la pàgina i només es veu el detall. */
 
-#detall-producte {
+#detall {
     display: none;
-    max-width: var(--amplada);
+    width: 1200px;
     margin: 0 auto;
-    padding: 30px 0 20px;
+    padding: 40px 0;
 }
 
-body.veient-producte #detall-producte {
+body.veient-producte #detall {
     display: block;
 }
 
@@ -467,27 +314,12 @@ body.veient-producte .valors {
     display: none;
 }
 
-.molles {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 22px;
-    margin-bottom: 40px;
-    border-bottom: 1px solid var(--linia);
-    font-size: 13px;
-    color: var(--text-suau);
-}
-
-.molles b {
-    font-weight: 500;
-    color: var(--text);
-}
-
 .tornar {
+    margin-bottom: 30px;
     padding: 0;
     border: none;
     background: none;
-    color: var(--or);
+    color: #c9a227;
     font-family: inherit;
     font-size: 12px;
     font-weight: 600;
@@ -496,27 +328,18 @@ body.veient-producte .valors {
     cursor: pointer;
 }
 
-.tornar:hover {
-    color: var(--or-clar);
-}
-
 .detall {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
+    display: flex;
     gap: 70px;
-    align-items: start;
 }
 
-.detall-imatge {
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    background-color: var(--crema);
+.detall img {
+    width: 600px;
+    height: 600px;
 }
 
-.detall-imatge img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.detall-info {
+    width: 530px;
 }
 
 .detall-categoria {
@@ -525,225 +348,116 @@ body.veient-producte .valors {
     font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--or);
+    color: #c9a227;
 }
 
 .detall-info h1 {
     font-size: 52px;
-    line-height: 1.05;
+    line-height: 1.1;
 }
 
 .detall-preu {
-    margin: 16px 0 22px;
+    margin: 15px 0;
     font-size: 26px;
-    color: var(--or);
+    color: #c9a227;
 }
 
 .detall-descripcio {
-    margin: 0 0 30px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid var(--linia);
-    color: var(--text-suau);
+    padding-bottom: 25px;
+    border-bottom: 1px solid #2b2b2b;
+    color: #9d978d;
 }
 
-.etiqueta {
-    margin: 0 0 10px;
+.detall-info label {
+    display: block;
+    margin: 20px 0 8px;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--text-suau);
+    color: #9d978d;
 }
 
-/* Talles com a botons: amaguem el cercle del radio i pintem l'etiqueta */
-.talles {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 26px;
-}
-
-.talla input {
-    display: none;
-}
-
-.talla span {
-    display: inline-block;
-    min-width: 56px;
-    padding: 10px 14px;
-    border: 1px solid var(--linia);
-    text-align: center;
-    font-size: 14px;
-    cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
-}
-
-.talla span:hover {
-    border-color: var(--text-suau);
-}
-
-.talla input:checked + span {
-    border-color: var(--or);
-    color: var(--or);
-}
-
-.talla.exhaurida span {
-    opacity: 0.3;
-    text-decoration: line-through;
-    cursor: not-allowed;
-}
-
-.fila-comprar {
-    display: flex;
-    gap: 14px;
-}
-
-/* Selector de quantitat: −  1  + */
-.quantitat {
-    display: flex;
-    border: 1px solid var(--linia);
-}
-
-.quantitat button {
-    width: 44px;
-    border: none;
-    background: none;
-    color: var(--text);
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.quantitat button:hover {
-    color: var(--or);
-}
-
-.quantitat input {
-    width: 46px;
-    border: none;
-    background: none;
-    color: var(--text);
+.detall-info select,
+.detall-info input {
+    width: 120px;
+    padding: 10px;
+    background-color: #0e0e0e;
+    border: 1px solid #2b2b2b;
+    color: #f2efe9;
     font-family: inherit;
     font-size: 15px;
-    text-align: center;
-    -moz-appearance: textfield;
 }
 
-.quantitat input::-webkit-inner-spin-button,
-.quantitat input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
-
-.fila-comprar .boto {
-    flex: 1;
-}
-
-.missatge-cabas {
-    min-height: 22px;
-    margin: 12px 0 0;
-    font-size: 13px;
-    color: var(--or);
+.detall-info .boto {
+    display: block;
+    width: 100%;
+    margin-top: 25px;
 }
 
 .detall-dades {
-    margin: 22px 0 0;
+    margin: 30px 0 0;
     padding: 0;
     list-style: none;
 }
 
 .detall-dades li {
-    display: flex;
-    justify-content: space-between;
-    padding: 13px 0;
-    border-bottom: 1px solid var(--linia);
+    padding: 12px 0;
+    border-bottom: 1px solid #2b2b2b;
     font-size: 14px;
 }
 
 .detall-dades span {
-    color: var(--text-suau);
+    display: inline-block;
+    width: 150px;
+    color: #9d978d;
 }
 
-.relacionats {
-    margin-top: 90px;
-    padding-top: 50px;
-    border-top: 1px solid var(--linia);
-}
-
-.relacionats .productes {
-    grid-template-columns: repeat(auto-fit, 279px);   /* centrades encara que n'hi hagi menys de 4 */
-    justify-content: center;
-}
-
-.relacionats h2 {
-    margin-bottom: 34px;
-    text-align: center;
-    font-size: 38px;
-}
-
-/* ==========================================================
-   VALORS (portada)
-   ========================================================== */
+/* ---------- Valors (portada) ---------- */
 
 .valors {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: var(--amplada);
+    display: flex;
+    width: 1200px;
     margin: 100px auto 0;
     padding: 60px 0;
-    border-top: 1px solid var(--linia);
-    scroll-margin-top: 80px;
-}
-
-.valor {
-    padding: 10px 30px;
+    border-top: 1px solid #2b2b2b;
     text-align: center;
-    color: var(--or);
 }
 
-.valor + .valor {
-    border-left: 1px solid var(--linia);
+.valors div {
+    width: 400px;
+    padding: 0 30px;
 }
 
-.valor h3 {
-    margin: 16px 0 8px;
+.valors h3 {
+    margin-bottom: 8px;
     font-size: 27px;
-    color: var(--text);
+    color: #c9a227;
 }
 
-.valor p {
-    margin: 0;
-    color: var(--text-suau);
+.valors p {
+    color: #9d978d;
     font-size: 14px;
 }
 
-/* ==========================================================
-   FORMULARIS (registre i login)
-   ========================================================== */
+/* ---------- Formularis ---------- */
 
 main {
-    max-width: var(--amplada);
-    margin: 0 auto;
     padding: 70px 0 90px;
 }
 
 .formulari {
     width: 460px;
     margin: 0 auto;
-    padding: 44px 48px 40px;
-    background-color: var(--fosc);
-    border: 1px solid var(--linia);
-    border-top: 2px solid var(--or);
+    padding: 40px 48px;
+    background-color: #161616;
+    border: 1px solid #2b2b2b;
+    border-top: 2px solid #c9a227;
 }
 
 .formulari h2 {
     text-align: center;
     font-size: 40px;
-}
-
-.formulari-subtitol {
-    margin: 4px 0 18px;
-    text-align: center;
-    color: var(--text-suau);
 }
 
 .formulari label {
@@ -753,23 +467,23 @@ main {
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--text-suau);
+    color: #9d978d;
 }
 
 .formulari input {
     width: 100%;
-    padding: 13px 14px;
-    background-color: var(--negre);
-    border: 1px solid var(--linia);
-    color: var(--text);
+    box-sizing: border-box;
+    padding: 13px;
+    background-color: #0e0e0e;
+    border: 1px solid #2b2b2b;
+    color: #f2efe9;
     font-family: inherit;
     font-size: 15px;
-    transition: border-color 0.2s;
 }
 
 .formulari input:focus {
     outline: none;
-    border-color: var(--or);
+    border-color: #c9a227;
 }
 
 .formulari .boto {
@@ -778,73 +492,37 @@ main {
 }
 
 .formulari-peu {
-    margin: 22px 0 0;
     text-align: center;
     font-size: 13px;
-    color: var(--text-suau);
+    color: #9d978d;
 }
 
 .formulari-peu a {
-    color: var(--or);
+    color: #c9a227;
 }
 
 .avis {
-    padding: 11px 14px;
-    border-left: 2px solid var(--or);
-    background-color: var(--fosc-2);
-    font-size: 14px;
+    padding: 10px 14px;
+    border-left: 2px solid #c9a227;
+    background-color: #1f1f1f;
 }
 
-.buit,
-.carregant {
-    padding: 40px;
-    text-align: center;
-    color: var(--text-suau);
-}
-
-/* ==========================================================
-   PEU DE PÀGINA (una sola franja)
-   ========================================================== */
+/* ---------- Peu de pàgina ---------- */
 
 footer {
-    margin-top: 80px;
-    border-top: 1px solid var(--linia);
-}
-
-.peu {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    max-width: var(--amplada);
-    margin: 0 auto;
-    padding: 26px 0;
+    align-items: center;
+    margin-top: 80px;
+    padding: 26px 120px;
+    border-top: 1px solid #2b2b2b;
     font-size: 12px;
-    color: var(--text-suau);
+    color: #9d978d;
 }
 
 .peu-logo {
     font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 20px;
-    font-weight: 600;
     letter-spacing: 7px;
-    color: var(--or);
-}
-
-.peu nav {
-    display: flex;
-    gap: 30px;
-}
-
-.peu nav a {
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    transition: color 0.2s;
-}
-
-.peu nav a:hover {
-    color: var(--or);
-}
-
-.peu p {
-    margin: 0;
+    color: #c9a227;
 }

@@ -1,7 +1,6 @@
 <?php
 // index.php
 // ENCAMINADOR (router): totes les peticions passen per aquí.
-// Mira el paràmetre "accio" de la URL i inclou el recurs que toca.
 
 $accio = $_GET['accio'] ?? null;
 
@@ -9,10 +8,10 @@ switch ($accio) {
     case 'llistar-categories':
         include __DIR__ . '/resource_llistar_categories.php';
         break;
-    case 'productes-categoria':
+    case 'productes-categoria':                          // FETCH
         include __DIR__ . '/resource_productes_categoria.php';
         break;
-    case 'detall-producte':
+    case 'detall-producte':                              // FETCH
         include __DIR__ . '/resource_detall_producte.php';
         break;
     case 'registre':
